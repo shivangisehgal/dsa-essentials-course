@@ -1,22 +1,19 @@
 #include<iostream>
 using namespace std;
 
-//Problem : Print all subarrays of a given array
-void printSubarrays(int arr[],int n){
-
-	for(int i=0;i<n;i++){
-		for(int j=i; j<n;j++){
-			for(int k=i;k<=j;k++){
-				cout<<arr[k] <<",";
-			}
-			cout <<endl;
-		}
-
-	}
-
+//Problem : Print all pairs in a given array
+// TC: O(N^2)
+void printPairs(int arr[], int n)
+{
+    for(int i = 0; i < n; i++)
+    {
+        for(int j = i + 1; j < n; j++)
+        {
+            cout<<arr[i]<<" "<<arr[j];
+            cout << endl;
+        }
+    }
 }
-
-// Print the sum of each subarray & find out the largest sum
 
 
 int main(){
