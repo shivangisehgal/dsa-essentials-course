@@ -24,6 +24,7 @@ int largestSubarraySum1(int arr[],int n){
 	return largest_sum;
 }
 // Prefix Sum Approach O(N^2)
+//SC : O(N)
 int largestSubarraySum2(int arr[],int n){
 
 	//Prefix Sums
