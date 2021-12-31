@@ -1,10 +1,11 @@
 #include<iostream>
 using namespace std;
-
+//Kadane'a Algorithm : O(N)
 int maximum_subarray_sum(int arr[],int n){
 
 	int cs = 0;
 	int largest = 0;
+	int maxelement = INT_MIN;
 
 	for(int i=0;i<n;i++){
 		cs = cs + arr[i];
@@ -12,8 +13,13 @@ int maximum_subarray_sum(int arr[],int n){
 			cs = 0;
 		}
 		largest = max(largest, cs);
+		
+		maxelement = max(maxelement, arr[i]); //needed in all-negative-numbers case
 	}
-
+	
+	if(maxelement < 0) //check for all negative numbers
+	return maxelement;
+	
 	return largest;
 }
 
