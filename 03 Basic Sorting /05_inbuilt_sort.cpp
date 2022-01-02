@@ -1,3 +1,7 @@
+//TC: O(N log N)
+//SC: O(1)
+
+
 #include<iostream>
 #include<algorithm>
 using namespace std;
