@@ -1,3 +1,7 @@
+// TC: O(N + K)
+// SC: O(N + K)
+// Where K is the range of input
+
 #include<iostream>
 #include<vector>
 using namespace std;
