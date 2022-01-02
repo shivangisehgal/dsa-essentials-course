@@ -25,6 +25,7 @@ void print(int arr[][10],int n,int m){
 
         //End Row
         for(int col=endCol - 1; col>=startCol;col--){
+	    //Avoid Duplicate Printing of row elements
             if(startRow==endRow){
                 break;
             }
@@ -33,7 +34,7 @@ void print(int arr[][10],int n,int m){
 
         //Start Col
         for(int row = endRow-1; row >=startRow + 1;row--){
-            //Avoid Duplicate Printing of elements
+            //Avoid Duplicate Printing of column elements
             if(startCol==endCol){
                 break;
             }
