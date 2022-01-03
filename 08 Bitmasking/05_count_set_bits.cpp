@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int count_bits(int n){
+int count_set_bits(int n){
 	
 	int cnt = 0;
 
@@ -35,7 +35,7 @@ int main(){
 	int n;
 	cin>>n;
 
-	cout<<count_bits(n) <<endl;
+	cout<<count_set_bits(n) <<endl;
 	cout<<count_bits_hack(n) <<endl;
 
 	return 0;
