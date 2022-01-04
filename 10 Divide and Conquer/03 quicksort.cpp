@@ -1,3 +1,9 @@
+// 1. Choose a pivot (conventionally last element)
+// 2. PARTITION (move elements to left or right of pivot)
+// 3. Recursively apply quicksort to left of the pivot and right of the pivot
+
+
+
 #include<iostream>
 #include <vector>
 using namespace std;
