@@ -60,30 +60,147 @@ void postOrder(Node * root){
 	cout << root->data <<" ";
 }
 
-void printRoot2LeafPaths(Node * root,vector<int> &path){
+//PRINTING A TREE IN LEVEL ORDER
+//O(N)
+vector<int> levelOrder(Node* node)
+    {
+        if(node == NULL)
+            return {};
+        
+        queue<Node*> q;
+        vector<int> v;
+        
+        q.push(node);
+        q.push(NULL)
+        
+        while(!q.empty())
+        {
+            Node* front = q.front();
+            
+            if(front == NULL)
+            {
+                q.pop();
+                //cout << '\n'
+                //insert a new NULL for the next level
+                if(!q.empty())
+                {
+                    q.push(NULL);
+                }
+            }
+            else
+            {
+                q.pop();
+            
+                v.push_back(front->data);
+                //cout << front->data > " "; 
+                if(front->left != NULL)
+                {
+                    q.push(front->left);
+                }
+                if(front->right != NULL)
+                {
+                    q.push(front->right);
+                }
+            }
+        }
+        
+        return v;
+    }
+    
+//CREATING A TREE IN LEVEL ORDER
+//O(N)
+Node* createLevelOrder()
+{
+    if (root == NULL)
+        return;
+    queue<Node*> q;
+    
+    int d;
+    cin >> d;
+    Node* root = new Node(d);
+    q.push(root);
+    
+    while (!q.empty()) {
+        
+        int front = q.front();
+        q.pop();
+        
+        int c1, c2;
+        cin >> c1 >> c2;
+        if(c1 != -1)
+        {
+            root->left = new Node(c1);
+            q.push(root>left);
+        }
+        if(c2 != -1)
+        {
+            root->right = new Node(c2);
+            q.push(root>right);
+        }
+    }
+    
+    return root;
+}
+//HEIGHT OF A BINARY TREE
+//O(N)
+int height(Node* root)
+    {
+        if(root == NULL)
+        return 0;
+        
+        int leftHeight = height(root->left);
+        int rightHeight = height(root->right);
+        
+        return max(leftHeight, rightHeight) + 1;
+    }
+    
+//DIAMETER OF A TREE
+// M1
+//O(N^2)
+int treeDiameter(Node* root)
+{
+    int dRoot = height(root->left) + height(root->right); //(h1 - 1 + h2 - 1 + 1 + 1) 
+    int dLeft = treeDiameter(root->left);
+    int dRight = treeDiameter(root->right);
+    
+    return max(dRoot, dLeft, dRight);
+}
 
-	if(root==NULL){
-		return;
-	}
+//M2
+//O(N)
+class hdpair{
+    public:
+    int height;
+    int diameter;
+};
 
-	if(root->left==NULL and root->right==NULL){
-		//print the vector
-		for(int node:path){
-			cout<<node<<"->";
-		}
-		cout<<root->data<<"->";
-		cout<<endl;
-		return;
-	}
-
-	//rec case
-	path.push_back(root->data);
-	printRoot2LeafPaths(root->left,path);
-	printRoot2LeafPaths(root->right,path);
-	//backtracking
-	path.pop_back();
-	return;
-
+hdpair optDiameter(Node* root)
+{
+    hdpair obj;
+    
+    if(root == NULL)
+    {
+        obj.height = obj.diameter = 0;
+        return obj;
+    }
+    
+    hdpair Left =  optDiameter(root->left);
+    hdpair Right =  optDiameter(root->right);
+    
+    obj.height = max(Left.height, Right.height) + 1;
+    
+    int rootDiameter = Left.height + Right.height + 1;
+    int leftDiameter = Left.diameter;
+    int rightDiameter = Right.diameter;
+    
+    obj.diameter = max(rootDiameter, max(leftDiameter, rightDiameter));
+    
+    return obj;
+}
+int diameter(Node* root) {
+        
+        hdpair obj = optDiameter(root);
+        return obj.diameter;
 }
 
 
