@@ -9,7 +9,7 @@ class Node{
 public:
 	string key;
 	T value;
-	Node * next;
+	Node* next;
 
 	Node(string key, T value){
 		this->key = key;
@@ -28,7 +28,7 @@ public:
 template<typename T>
 class Hashtable{
 
-	Node<T> ** table;
+	Node<T>* *table;
 	int cs; //total entries that have been inserted
 	int ts; // size of table
 
@@ -36,7 +36,7 @@ class Hashtable{
 
 		int idx = 0;
 		int power = 1;
-
+		//if key = "abc" => idx = (a + b*29 + c*(29^2)) % ts
 		for(auto ch : key){
 			idx = (idx + ch*power)%ts;
 			power = (power*29)%ts;
