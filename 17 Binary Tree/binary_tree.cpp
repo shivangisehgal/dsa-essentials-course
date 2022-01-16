@@ -204,6 +204,31 @@ int diameter(Node* root) {
 }
 
 
+void printRoot2LeafPaths(Node * root,vector<int> &path){
+
+	if(root==NULL){
+		return;
+	}
+
+	if(root->left==NULL and root->right==NULL){
+		//print the vector
+		for(int node:path){
+			cout<<node<<"->";
+		}
+		cout<<root->data<<"->";
+		cout<<endl;
+		return;
+	}
+
+	//rec case
+	path.push_back(root->data);
+	printRoot2LeafPaths(root->left,path);
+	printRoot2LeafPaths(root->right,path);
+	//backtracking
+	path.pop_back();
+	return;
+
+}
 
 int main(){
 
