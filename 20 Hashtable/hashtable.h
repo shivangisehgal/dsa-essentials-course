@@ -125,14 +125,31 @@ public:
 		return NULL;
 	}
 
-	//HomeWork - Code Exercise
-	void erase(string key){
-		//find the bucket id 
-		// iterate over the linked list
-		// you have to do
+	void erase(string key)
+	{
+		int i = hashFn(key);
 
+		Node<T>* curr = table[i];
+		Node<T>* prev = NULL;
 
-	}
+		while(curr != NULL)
+		{
+		    if(curr->key == key)
+			break;
+
+		    prev = curr;
+		    curr = curr->next;
+		}
+
+		if(curr == NULL)
+		    return;
+
+		//first element is to be deleted
+		else if(prev == NULL)
+		    table[i] = curr->next;
+		else
+		    prev->next = curr->next;
+	  }
 
 
 	T& operator[](string key){
