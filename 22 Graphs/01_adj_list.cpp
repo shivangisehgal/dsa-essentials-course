@@ -1,3 +1,10 @@
+// Expected Output:
+// 1-->0,2,
+// 2-->1,3,
+// 3-->4,2,5,
+// 4-->0,3,5,
+// 5-->4,3,
+
 #include<iostream>
 #include<list>
 using namespace std;
