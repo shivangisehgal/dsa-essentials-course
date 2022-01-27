@@ -1,3 +1,11 @@
+// Expected Output
+
+// New York-->London,
+// Paris-->New York,
+// London-->
+// Delhi-->London,Paris,
+
+
 #include<iostream>
 #include<list>
 #include<unordered_map>
@@ -16,18 +24,19 @@ public:
 };
 
 class Graph{
-	unordered_map<string,Node*> m;
+	unordered_map<string,Node*> m; //just a container for storing nodes, links will be made in the list of each node.
 
 public:
 	Graph(vector<string> cities){
 		for(auto city : cities){
-			m[city] = new Node(city);
+			m[city] = new Node(city); //storing node in hashmap
 		}
 	}
 
 	void addEdge(string x,string y,bool undir=false){
 		m[x]->nbrs.push_back(y);
-
+		//storing node inside the list of neighbours in a node. 
+        	//(we're storing string, whose node can be obtained easily since its hashmap)
 		if(undir){
 			m[y]->nbrs.push_back(x);
 		}
@@ -36,7 +45,7 @@ public:
 	void printAdjList(){
 		for(auto cityPair : m){
 			auto city = cityPair.first;
-			Node *node = cityPair.second;
+			Node *node = cityPair.second; //or m[cityPair.first]
 			cout<<city<<"-->";
 			for(auto nbr : node->nbrs){
 				cout << nbr<<",";
