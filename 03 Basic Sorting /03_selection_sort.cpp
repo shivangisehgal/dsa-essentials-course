@@ -7,7 +7,7 @@
 // SC: O(1)
 
 //Working:
-https://www.google.com/url?sa=i&url=https%3A%2F%2Fs-satsangi.medium.com%2Finsertion-sort-selection-sort-and-bubble-sort-5eb16d55a4de&psig=AOvVaw3bajGO2xEfoBQvS_5XwEnA&ust=1643802664025000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjjm6G43vUCFQAAAAAdAAAAABAD
+http://www.xybernetics.com/techtalk/SortingAlgorithmsExplained/images/SelectionEg01.gif
 
 #include<iostream>
 using namespace std;
