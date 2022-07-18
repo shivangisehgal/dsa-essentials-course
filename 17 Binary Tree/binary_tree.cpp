@@ -129,13 +129,13 @@ Node* createLevelOrder()
         cin >> c1 >> c2;
         if(c1 != -1)
         {
-            root->left = new Node(c1);
-            q.push(root>left);
+            front->left = new Node(c1);
+            q.push(front->left);
         }
         if(c2 != -1)
         {
-            root->right = new Node(c2);
-            q.push(root>right);
+            front->right = new Node(c2);
+            q.push(front->right);
         }
     }
     
